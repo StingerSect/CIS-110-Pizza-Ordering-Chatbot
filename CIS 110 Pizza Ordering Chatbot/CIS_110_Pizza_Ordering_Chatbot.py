@@ -1,8 +1,11 @@
-# Rashim Rabess CIS 110 Week 3
+# Rashim Rabess CIS 110 Week 4
 print("Hello, my name is Ethan your vitural assistant. I will help you order a pizza!")
 print("To get started, I need to know how to address you. Please press enter after each response")
 userName = input("\nEnter your name: ")
-print(f"\nWelcome to Pizza Paradise {userName}.")
+if userName.lower() == "rashim r":
+    print(f"\nMy Creator, {userName}. Pleasure to serve you!")
+else:
+    print(f"\nWelcome to Pizza Paradise {userName}.")
 size = input("\nWhat size do you want? Enter small, medium, or large: ")
 flavor = input("\nEnter the flavor of pizza: ")
 crustType = input("\nWhat type of crust do you want: ")
@@ -11,10 +14,27 @@ quaninty = int(quaninty)
 method = input("\nIs this carry out or delivery: ")
 
 salesTax = 1.1
-pizzaCost = 14.99
-total = (pizzaCost * quaninty) * salesTax
+if size.lower() == "small":
+    pizzaCost = 8.99
+elif size.lower() == "medium":
+    pizzaCost = 14.99
+elif size.lower() == "large":
+    pizzaCost = 17.99
+
+if method.lower() == "delivery":
+    deliveryFee = 5
+else:
+    deliveryFee = 0
+
+total = (pizzaCost * quaninty) * salesTax + deliveryFee
 
 print("-" * 10)
 print(f"Thank you, {userName}, for your order.")
 print(f"Your {quaninty} {size} {flavor} pizza(s) with {crustType} crust costs ${total:,.2f}.")
+
+if total >= 50:
+    print("\nCongratulations! You've been awarded a $10 off coupon  for your next order.")
+else:
+    print("\nOrders over $50 will receive a free $10 off coupon!")
+
 print("-" * 10)
