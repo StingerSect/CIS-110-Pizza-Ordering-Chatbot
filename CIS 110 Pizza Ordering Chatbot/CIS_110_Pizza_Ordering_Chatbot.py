@@ -1,17 +1,30 @@
-# Rashim Rabess CIS 110 Week 4
+# Rashim Rabess CIS 110 Week 5
+
 print("Hello, my name is Ethan your vitural assistant. I will help you order a pizza!")
 print("To get started, I need to know how to address you. Please press enter after each response")
 userName = input("\nEnter your name: ")
+while len(userName) == 0:
+    userName = input("\nName cannot be blank. Please enter your name: ")
 if userName.lower() == "rashim r":
     print(f"\nMy Creator, {userName}. Pleasure to serve you!")
 else:
     print(f"\nWelcome to Pizza Paradise {userName}.")
 size = input("\nWhat size do you want? Enter small, medium, or large: ")
+while size.lower() not in ["small", "medium", "large"]:
+    size = input("\nInvaild Entry. Please enter small, medium, or large: ")
 flavor = input("\nEnter the flavor of pizza: ")
+while len(flavor) == 0:
+    flavor = input("\nFlavor cannot be blank. Please enter a flavor: ")
 crustType = input("\nWhat type of crust do you want: ")
+while len(crustType) == 0:
+    crustType = input("\nCrust type cannot be blank. Please enter a crust type: ")
 quaninty = input("\nHow many of these do you want to order? Enter a numeric value: ")
+while not quaninty.isdigit():
+    quaninty = input("\nValue not recognized. Please enter a numeric value: ")
 quaninty = int(quaninty)
 method = input("\nIs this carry out or delivery: ")
+while method.lower() not in ["carry out", "delivery"]:
+    method = input("\nInvaild Entry. Please enter carry out or delivery: ")
 
 salesTax = 1.1
 if size.lower() == "small":
